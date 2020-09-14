@@ -22,6 +22,13 @@ Finally, you need to configure the plugin via XML. The file must be named `jira-
         <token>atlassian-token</token>
     </api-token>
 
+    <!--
+    <credentials>
+        <username>foobar</username>
+        <password>secret</password>
+    </credentials>
+    -->
+
     <projects>
         <project>
             <key>PX</key>
@@ -52,8 +59,9 @@ jqassistant.sh server
 If your JIRA instance uses a self-signed certificate register it with the [Keytool](http://tutorials.jenkov.com/java-cryptography/keytool.html):
 
 ```bash
-keytool -import -alias JIRA -file jira.crt -keystore $JAVA_HOME/jre/lib/security/cacerts
+keytool -import -alias JIRA -file jira.crt -keystore $JAVA_HOME/lib/security/cacerts
 ```
+The certificate can be exported directly from a web browser (DER encoded-binary X509), the default passwort of the JRE keystore is `changeit`.
 
 ## Model
 
